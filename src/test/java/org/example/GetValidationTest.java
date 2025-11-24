@@ -8,25 +8,25 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class GetValidationTest {
 
-  private static final String endPoint = "https://jsonplaceholder.typicode.com/users";
+  private static final String ENDPOINT = "https://jsonplaceholder.typicode.com/users";
 
   @Test
   public void testGetUsersStatusCode() {
-    getRequest().assertThat().statusCode(200);
+    sendGetRequest().assertThat().statusCode(200);
   }
 
   @Test
   public void testGetUsersHeader() {
-    getRequest().assertThat().header("content-type", equalTo("application/json; charset=utf-8"));
+    sendGetRequest().assertThat().header("content-type", equalTo("application/json; charset=utf-8"));
   }
 
   @Test
   public void testGetUsersBody() {
-    getRequest().assertThat().body("size()", equalTo(10));
+    sendGetRequest().assertThat().body("size()", equalTo(10));
   }
 
 
-  private ValidatableResponse getRequest() {
-    return given().when().get(endPoint).then();
+  private ValidatableResponse sendGetRequest() {
+    return given().when().get(ENDPOINT).then();
   }
 }
