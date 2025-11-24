@@ -1,0 +1,7 @@
+<suite name="Suite" parallel="methods" thread-count="4">
+    <test name="RunClassInParallel">
+        <classes>
+            <class name="org.example.AppTest"/>
+        </classes>
+    </test>
+</suite>
