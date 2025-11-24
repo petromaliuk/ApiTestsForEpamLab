@@ -6,22 +6,22 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class AppTest {
+public class GetValidationTest {
 
   private static final String endPoint = "https://jsonplaceholder.typicode.com/users";
 
   @Test
-  public void testStatusCode() {
+  public void testGetUsersStatusCode() {
     getRequest().assertThat().statusCode(200);
   }
 
   @Test
-  public void testHeader() {
+  public void testGetUsersHeader() {
     getRequest().assertThat().header("content-type", equalTo("application/json; charset=utf-8"));
   }
 
   @Test
-  public void testBody() {
+  public void testGetUsersBody() {
     getRequest().assertThat().body("size()", equalTo(10));
   }
 
